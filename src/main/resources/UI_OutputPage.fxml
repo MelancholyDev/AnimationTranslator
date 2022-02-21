@@ -16,7 +16,7 @@
                   <Image url="@../../../../../maxresdefault.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="455.0" layoutY="238.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="138.0" text="Finish" />
+            <Button fx:id="finishButton" layoutX="455.0" layoutY="238.0" mnemonicParsing="false" onAction="#OnFinishButtonClicked" prefHeight="40.0" prefWidth="138.0" text="Finish" />
          </children>
       </AnchorPane>
       <Label layoutX="61.0" layoutY="33.0" prefHeight="46.0" prefWidth="456.0" text="Animated translator for YouTube" textFill="WHITE">
