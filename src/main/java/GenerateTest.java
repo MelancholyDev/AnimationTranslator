@@ -6,7 +6,7 @@ import java.net.URL;
 
 public class GenerateTest {
     public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
-        Process process = Runtime.getRuntime().exec("D:\\Programming\\AnimationTranslator\\venv\\Scripts\\python.exe D:\\Programming\\AnimationTranslator\\venv\\Scripts\\main.py D:\\Programming\\AnimationTranslator\\venv\\Scripts\\crema.dat D:\\Programming\\AnimationTranslator\\venv\\Scripts\\image.bmp D:\\Programming\\AnimationTranslator\\venv\\Scripts\\sound.wav generated.mp4");
+        Process process = Runtime.getRuntime().exec("D:\\Programming\\AnimationTranslator\\venv\\Scripts\\python.exe D:\\Programming\\AnimationTranslator\\src\\main\\VideoGeneraion\\main.py D:\\Programming\\AnimationTranslator\\src\\main\\resources\\VideoGenerator\\crema.dat D:\\Programming\\AnimationTranslator\\src\\main\\resources\\VideoGenerator\\image.bmp D:\\Programming\\AnimationTranslator\\src\\main\\resources\\VideoGenerator\\sound.wav generated.mp4");
         process.waitFor();
         BufferedReader stdInput = new BufferedReader(new
                 InputStreamReader(process.getInputStream()));
