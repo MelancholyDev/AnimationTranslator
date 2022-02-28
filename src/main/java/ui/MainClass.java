@@ -1,3 +1,5 @@
+package ui;
+
 import java.io.IOException;
 import java.net.URL;
 
@@ -20,6 +22,6 @@ public class MainClass extends Application{
     }
     public static void main(String[] args) throws IOException {
         launch();
-        Process process = Runtime.getRuntime().exec("D:\\Programming\\AnimationTranslator\\src\\main\\resources\\TranslatorAnaconda D:\\Programming\\AnimationTranslator\\src\\main\\resources\\main.py");
+        //Process process = Runtime.getRuntime().exec("D:\\Programming\\AnimationTranslator\\src\\main\\resources\\TranslatorAnaconda D:\\Programming\\AnimationTranslator\\src\\main\\resources\\main.py");
     }
 }
