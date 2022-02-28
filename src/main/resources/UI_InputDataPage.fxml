@@ -8,17 +8,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.UIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController">
    <children>
       <AnchorPane layoutY="101.0" prefHeight="298.0" prefWidth="700.0" style="-fx-background-color: #fafafa;">
          <children>
-            <Label layoutX="161.0" layoutY="23.0" prefHeight="30.0" prefWidth="378.0" text="Here you would input data later">
-               <font>
-                  <Font name="Calisto MT" size="25.0" />
-               </font>
-            </Label>
+            <Button layoutX="263.0" layoutY="130.0" mnemonicParsing="false" onAction="#OnChooseFinalFolderClicked" prefHeight="20.0" prefWidth="100.0" text="ChooseFolder" />
+            <Label id="LastName" text="" fx:id="finalPath" layoutX="263.0" layoutY="160.0" />
             <Button layoutX="263.0" layoutY="213.0" mnemonicParsing="false" onAction="#OnGenerateButtonClicked" prefHeight="40.0" prefWidth="138.0" text="Generate video" />
-            <DialogPane layoutX="162.0" layoutY="96.0" />
          </children>
       </AnchorPane>
       <Label layoutX="61.0" layoutY="33.0" prefHeight="46.0" prefWidth="456.0" text="Animated translator for YouTube" textFill="WHITE">
