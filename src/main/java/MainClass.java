@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 public class MainClass extends Application {
     static Stage primaryStage;
+    static Scene mainScene;
     static VideoGenerator videoGenerator;
     static UIController controller;
     @Override
@@ -18,7 +19,10 @@ public class MainClass extends Application {
         URL location = MainClass.class.getResource("UI_StartPage.fxml");
         Parent root = FXMLLoader.load(location);
         stage.setTitle("AnimationTranslator");
-        stage.setScene(new Scene(root, 700, 400));
+        mainScene = new Scene(root, 700, 400);
+        stage.setScene(mainScene);
+        stage.setMinWidth(700);
+        stage.setMinHeight(400);
         stage.show();
     }
 
