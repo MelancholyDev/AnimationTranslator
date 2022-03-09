@@ -19,7 +19,7 @@ public class MainClass extends Application {
         URL location = MainClass.class.getResource("UI_StartPage.fxml");
         Parent root = FXMLLoader.load(location);
         stage.setTitle("AnimationTranslator");
-        mainScene = new Scene(root, 700, 400);
+        mainScene = new Scene(root);
         stage.setScene(mainScene);
         stage.setMinWidth(700);
         stage.setMinHeight(400);

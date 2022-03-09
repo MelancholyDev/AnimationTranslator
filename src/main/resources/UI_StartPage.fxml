@@ -12,29 +12,40 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.VBox?>
-<BorderPane  minWidth="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenuController">
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.Media?>
+<BorderPane minWidth="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenuController">
     <top>
-        <Label maxWidth="Infinity" maxHeight="Infinity"  alignment="TOP_CENTER">
-            <text>Animation Translator</text>
-            <font>
-                <Font name="Arial" size="20">
-                </Font>
-            </font>
-            <padding>
-                <Insets top="20"/>
-            </padding>
-        </Label>
+        <VBox alignment="TOP_CENTER" spacing="5">
+            <ImageView fitHeight="50" fx:id="imageView" fitWidth="240">
+                <Image url="Lines.png"  fx:id="image"  backgroundLoading="true"/>
+            </ImageView>
+            <Label maxWidth="Infinity" fx:id="animationTranslator" maxHeight="Infinity"  alignment="TOP_CENTER">
+                <text>Animation Translator</text>
+                <font>
+                    <Font name="Arial" size="20">
+                    </Font>
+                </font>
+                <padding>
+                    <Insets top="20"/>
+                </padding>
+            </Label>
+            <MediaView fx:id="mediaView" fitWidth="400" fitHeight="400">
+            </MediaView>
+        </VBox>
     </top>
     <center>
         <VBox alignment="CENTER" spacing="10">
-            <Button prefHeight="40" prefWidth="110" text="Create video" onAction="#loadCreateVideoPage"/>
-            <Button prefHeight="40" prefWidth="110" text="Add subtitles" onAction="#loadAddSubtitlesPage"/>
+            <Button prefHeight="40" prefWidth="110" fx:id="createVideo" text="Create video" onAction="#loadCreateVideoPage"/>
+            <Button prefHeight="40" prefWidth="110" fx:id="addSubtitles" text="Add subtitles" onAction="#loadAddSubtitlesPage"/>
         </VBox>
     </center>
     <bottom>
         <VBox alignment="CENTER"  spacing="10" >
-            <Button  VBox.vgrow="ALWAYS" text="FAQ" onAction="#openFAQ"/>
-            <Label maxWidth="Infinity" alignment="CENTER" >
+            <Button  VBox.vgrow="ALWAYS" fx:id="faqButton" text="FAQ" onAction="#openFAQ"/>
+            <Label maxWidth="Infinity" fx:id="names" alignment="CENTER" >
                 <text>Maksimov, Rabizov, Ziatdinov</text>
                 <padding>
                     <Insets bottom="20"/>
@@ -47,41 +58,3 @@
         </VBox>
     </bottom>
 </BorderPane>
-    <!--    <AnchorPane layoutY="101.0" prefHeight="298.0" prefWidth="700.0" style="-fx-background-color: #fafafa;">-->
-    <!--        <children>-->
-    <!--            <Button layoutX="163.0" layoutY="97.0" prefHeight="18.0" fx:id="chooseImageButton" onAction="#chooseImage"-->
-    <!--                    prefWidth="138.0" text="Choose image"/>-->
-    <!--            <Label layoutX="126.0" layoutY="48.0" text="Choose input type">-->
-    <!--                <font>-->
-    <!--                    <Font name="Calisto MT" size="25.0"/>-->
-    <!--                </font>-->
-    <!--            </Label>-->
-    <!--            <RadioButton layoutX="163.0" layoutY="123.0" fx:id="radioButtonChooseSound" mnemonicParsing="false"-->
-    <!--                         onAction="#radioButtonChooseSoundEvent" prefHeight="18.0" prefWidth="138.0" text="Audio">-->
-    <!--                <font>-->
-    <!--                    <Font name="Calisto MT" size="12.0"/>-->
-    <!--                </font>-->
-    <!--            </RadioButton>-->
-    <!--            <RadioButton layoutX="163.0" layoutY="153.0" fx:id="radioButtonChooseText" mnemonicParsing="false"-->
-    <!--                         onAction="#radioBittonChooseTextEvent" prefHeight="18.0" prefWidth="138.0" text="Text">-->
-    <!--                <font>-->
-    <!--                    <Font name="Calisto MT" size="12.0"/>-->
-    <!--                </font>-->
-    <!--            </RadioButton>-->
-    <!--            <Label id="LastName" text="" fx:id="imagePath" layoutX="310.0" layoutY="97.0"/>-->
-    <!--            <Label id="LastName" text="" fx:id="soundPath" layoutX="377.0" layoutY="123.0"/>-->
-    <!--            <Label id="LastName" text="" fx:id="textPath" layoutX="377.0" layoutY="153.0"/>-->
-    <!--            <Button layoutX="230.0" layoutY="123.0" prefHeight="18.0" fx:id="buttonFindSound"-->
-    <!--                    onAction="#buttonClickedFindSound" prefWidth="138.0" text="Choose sound"/>-->
-    <!--            <Button layoutX="230.0" layoutY="153.0" prefHeight="18.0" fx:id="buttonFindText"-->
-    <!--                    onAction="#buttonClickedFindText" prefWidth="138.0" text="Choose text"/>-->
-    <!--            <Button layoutX="262.0" layoutY="243.0" mnemonicParsing="false" onAction="#OnChooseInputNextButtonClicked"-->
-    <!--                    prefHeight="40.0" prefWidth="138.0" text="Next"/>-->
-    <!--        </children>-->
-    <!--    </AnchorPane>-->
-    <!--    <Label layoutX="61.0" layoutY="33.0" prefHeight="46.0" prefWidth="456.0" text="Animated translator for YouTube"-->
-    <!--           textFill="WHITE">-->
-    <!--        <font>-->
-    <!--            <Font name="Calisto MT" size="31.0"/>-->
-    <!--        </font>-->
-    <!--    </Label>-->
