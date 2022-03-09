@@ -1,8 +1,12 @@
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.sun.tools.javac.Main;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +27,8 @@ public class MainMenuController {
     Button createVideo;
     @FXML
     Button addSubtitles;
+    float oldX;
+    float oldY;
 
     @FXML
     public void loadCreateVideoPage() throws IOException {
@@ -36,5 +42,23 @@ public class MainMenuController {
     @FXML
     public void openFAQ() throws IOException{
 
+    }
+
+    @FXML
+    void initialize(){
+        Stage primaryStage = MainClass.primaryStage;
+        oldX= (float)primaryStage.getWidth();
+        oldY= (float)primaryStage.getHeight();
+
+        final ChangeListener<Number> listener = (observable, oldValue, newValue) -> {
+            createVideo.setScaleX(createVideo.getScaleX()*(primaryStage.getWidth()/oldX));
+            createVideo.setScaleY(createVideo.getScaleY()*(primaryStage.getHeight()/oldX));
+            System.out.println("resize to " + primaryStage.getWidth() + " " + primaryStage.getHeight());
+            oldX= (float)primaryStage.getWidth();
+            oldY= (float)primaryStage.getHeight();
+        };
+
+        primaryStage.widthProperty().addListener(listener);
+        primaryStage.heightProperty().addListener(listener);
     }
 }
