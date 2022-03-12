@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenuController">
+   <center>
+      <TextArea prefHeight="200.0" prefWidth="200.0" text="FAQ:&#10;- What does this app do?&#10;- It transforms your image,sound and text into animated translation video&#10;&#10;- What if i don't have sound for input?&#10;- For correct generation you need at least text and image input. Text would be converted into sound and translated automatically&#10;&#10;- What do i need for subtitles?&#10;- You need SRT file&#10;&#10;- What is SRT file?&#10;- A file with the .SRT file extension is a SubRip Subtitle file. These types of files hold video subtitle information like the start and end timecodes of the text and the sequential number of subtitles.&#10;&#10;- How does the video translation works?&#10;- Our app converts video into audio track, which is converted into text and translated. After that it transforms back into audio and then we generate animated video. &#10;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

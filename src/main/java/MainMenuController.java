@@ -37,7 +37,8 @@ public class MainMenuController {
 
     @FXML
     public void openFAQ() throws IOException {
-
+        Parent root = FXMLLoader.load(MainClass.class.getResource("UI_FAQ.fxml"));
+        MainClass.mainScene.setRoot(root);
     }
 
     @FXML
