@@ -32,8 +32,6 @@
                     <Insets top="20"/>
                 </padding>
             </Label>
-            <MediaView fx:id="mediaView" fitWidth="400" fitHeight="400">
-            </MediaView>
         </VBox>
     </top>
     <center>

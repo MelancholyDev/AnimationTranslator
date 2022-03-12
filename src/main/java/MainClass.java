@@ -6,12 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.xml.crypto.Data;
+
 
 public class MainClass extends Application {
     static Stage primaryStage;
     static Scene mainScene;
     static VideoGenerator videoGenerator;
     static UIController controller;
+    static DataClass data;
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
