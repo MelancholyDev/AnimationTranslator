@@ -15,11 +15,18 @@ vid, aud = va(image_path, audio_path)
 va.save_video(vid, aud, save_video_path)
 
 if (is_add_subtitles):
+    clip1 = moviepy.VideoFileClip(save_video_path)
+    clip1 = clip1.subclip(0,clip1.duration)
+    clip2 = clip1.resize(height=1920)
+    w2 = clip2.w
+    h2 = clip2.h
+    clip2.write_videofile('finaly.mp4')
+    print("Width x Height of clip 2 : ", end=" ")
+    print(str(w2) + " x ", str(h2))
+    print("---------------------------------------")
+
+    subtitles_path = sys.argv[6]
     generator = lambda txt: moviepy.video.VideoClip.TextClip(txt, font="Times-Roman", fontsize=24, color="White")
-    subs = [((0, 4), 'subs1'),
-            ((4, 9), 'subs2'),
-            ((9, 12), 'subs3'),
-            ((12, 16), 'subs4')]
     subtitles = moviepy.video.tools.subtitles.SubtitlesClip(subs, generator)
     video = moviepy.video.io.VideoFileClip.VideoFileClip(save_video_path)
     final_path = save_video_path[:-4]

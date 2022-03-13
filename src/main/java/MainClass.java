@@ -14,7 +14,8 @@ public class MainClass extends Application {
     static Scene mainScene;
     static VideoGenerator videoGenerator;
     static UIController controller;
-    static DataClass data;
+    static GenerateVideoController generateController;
+
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;

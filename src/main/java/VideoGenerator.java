@@ -24,7 +24,7 @@ public class VideoGenerator extends Thread {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    MainClass.controller.addLog(log);
+                    MainClass.generateController.addLog(log);
                 }
             });
             generateAllVideos();
@@ -47,8 +47,8 @@ public class VideoGenerator extends Thread {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                MainClass.controller.addLog(log);
-                MainClass.controller.showEndButton();
+                MainClass.generateController.addLog(log);
+                MainClass.generateController.finishGeneration();
             }
         });
     }
@@ -58,7 +58,7 @@ public class VideoGenerator extends Thread {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                MainClass.controller.addLog(log);
+                MainClass.generateController.addLog(log);
             }
         });
         String command = pythonPath+" "+mainPath+" "+resourcePath+dataSet+" "+image+" "+sound+" "+finalLibrary+"\\generated_"+index+".mp4"+" "+isAddSubtitles;
@@ -86,7 +86,7 @@ public class VideoGenerator extends Thread {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                MainClass.controller.addLog(log);
+                MainClass.generateController.addLog(log);
             }
         });
 

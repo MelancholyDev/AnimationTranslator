@@ -1,3 +1,4 @@
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -5,20 +6,26 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.text.Font;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
 
 public class CreateVideoInputController {
 
     @FXML
+    public Label title;
+    @FXML
     public Label soundPath;
     @FXML
     public Label imagePath;
     @FXML
     public Label subtitlesPath;
+    public Button chooseImage;
+    public Button chooseSoundButton;
     @FXML
     Button chooseSubtitlesButton;
     @FXML
@@ -50,43 +57,42 @@ public class CreateVideoInputController {
 
     @FXML
     void initialize() {
-//        oldButtonX = 700;
-//        oldButtonY = 400;
-//        oldButtonFont = 11;
-//        oldTranslatorFont=20;
-//        MainClass.primaryStage.widthProperty().addListener(
-//                (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-//                    double change = newValue.doubleValue() / oldButtonX;
-//                    System.out.println("Change:" + change);
-//                    createVideo.setPrefWidth(110 * change);
-//                    createVideo.setFont(new Font(oldButtonFont * change));
-//                    addSubtitles.setPrefWidth(110 * change);
-//                    addSubtitles.setFont(new Font(oldButtonFont * change));
-//                    faqButton.setPrefWidth(110 * change);
-//                    faqButton.setFont(new Font(oldButtonFont * change));
-//                    names.setFont(new Font(oldButtonFont * change));
-//                    imageView.setFitWidth(240*change);
-//                    animationTranslator.setFont(new Font(oldTranslatorFont * change));
-//                });
-//        MainClass.primaryStage.heightProperty().addListener(
-//                (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-//                    double change = newValue.doubleValue() / oldButtonY;
+        MainClass.primaryStage.widthProperty().addListener(
+                (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
+                    double change = newValue.doubleValue() / DataClass.startXStage;
+                    title.setFont(new Font(DataClass.startTitleFontSize* change));
+
+                    chooseImage.setPrefWidth(DataClass.startButtonX*change);
+                    chooseImage.setFont(new Font(DataClass.startButtonFont*change));
+                    imagePath.setFont(new Font(DataClass.startButtonFont*change));
+                    imagePath.setPrefWidth(DataClass.startButtonX*change);
+                    imagePath.setMaxWidth(DataClass.maxWidthPath*change);
+
+                    chooseSoundButton.setPrefWidth(DataClass.startButtonX*change);
+                    chooseSoundButton.setFont(new Font(DataClass.startButtonFont*change));
+                    soundPath.setFont(new Font(DataClass.startButtonFont*change));
+                    soundPath.setPrefWidth(DataClass.startButtonX*change);
+                    soundPath.setMaxWidth(DataClass.maxWidthPath*change);
+                });
+        MainClass.primaryStage.heightProperty().addListener(
+                (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
+                    double change = newValue.doubleValue() / DataClass.startYStage;
+                    chooseImage.setPrefHeight(DataClass.startButtonY*change);
+                    chooseSoundButton.setPrefHeight(DataClass.startButtonY*change);
 //                    createVideo.setPrefHeight(40 * change);
 //                    imageView.setFitHeight(50*change);
 //                    addSubtitles.setPrefHeight(40 * change);
-//                });
+                });
+        MainClass.primaryStage.setWidth(MainClass.primaryStage.widthProperty().doubleValue()+1);
+        MainClass.primaryStage.setHeight(MainClass.primaryStage.heightProperty().doubleValue()+1);
     }
 
     public void checkIsInputFinished() {
         if (chooseSubtitlesRadioButton.isSelected()) {
-            continueButton.setVisible(correctImage & correctSound & correctSub);
+            continueButton.setVisible(correctImage & correctSound & correctSub & correctFolder);
         } else {
             continueButton.setVisible(correctImage & correctSound & correctFolder);
         }
-    }
-
-    private void showContinueButton() {
-
     }
 
     public void chooseSound(ActionEvent actionEvent) {
@@ -108,6 +114,7 @@ public class CreateVideoInputController {
     public void showChooseSubtitles(ActionEvent actionEvent) {
         subtitlesPath.setVisible(chooseSubtitlesRadioButton.isSelected());
         chooseSubtitlesButton.setVisible(chooseSubtitlesRadioButton.isSelected());
+        checkIsInputFinished();
     }
 
     public void chooseSubtitles(ActionEvent actionEvent) {
@@ -127,7 +134,7 @@ public class CreateVideoInputController {
     }
 
     public void openGenerateVideoMenu(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(MainClass.class.getResource("UI_OutputPage.fxml"));
+        Parent root = FXMLLoader.load(MainClass.class.getResource("UI_Generation.fxml"));
         MainClass.mainScene.setRoot(root);
     }
 

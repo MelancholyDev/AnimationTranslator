@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="FinishGenerationController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <Label maxWidth="Infinity" fx:id="title" alignment="TOP_CENTER">
+            <text>Results</text>
+            <font>
+                <Font name="Arial" size="20">
+                </Font>
+            </font>
+            <padding>
+                <Insets top="20"/>
+            </padding>
+        </Label>
+    </top>
+    <center>
+        <HBox alignment="CENTER" fx:id="VideoBox">
+            <VBox alignment="CENTER" fx:id="firstVideo">
+                <padding>
+                    <Insets top="40" bottom="40"/>
+                </padding>
+            </VBox>
+            <VBox  alignment="CENTER" fx:id="secondVideo">
+                <padding>
+                    <Insets top="10" bottom="10"/>
+                </padding>
+            </VBox>
+            <VBox alignment="CENTER" fx:id="thirdVideo">
+                <padding>
+                    <Insets top="10" bottom="10"/>
+                </padding>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

@@ -5,4 +5,5 @@ public class DataClass {
     public static double startButtonX = 110;
     public static double startButtonY = 40;
     public static double startButtonFont = 11;
+    public static double maxWidthPath=150;
 }
