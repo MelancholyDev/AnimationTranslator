@@ -13,8 +13,8 @@ import java.io.IOException;
 
 public class FAQController {
     public Label text;
-    public BorderPane pane;
     public ScrollPane scrollPane;
+    public Text description;
 
     public void backToMenu(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(MainClass.class.getResource("UI_StartPage.fxml"));
@@ -22,25 +22,29 @@ public class FAQController {
     }
     @FXML
     void initialize() {
-        scrollPane.setPrefWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
-        scrollPane.setMaxWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
-        scrollPane.setMinWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
+//        scrollPane.setPrefWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
+//        scrollPane.setMaxWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
+//        scrollPane.setPrefHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
+//        scrollPane.setMaxHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
+        scrollPane.setPrefWidth(550);
+        scrollPane.setMaxWidth(550);
+        scrollPane.setPrefHeight(250);
+        scrollPane.setMaxHeight(250);
 
-        scrollPane.setPrefHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
-        scrollPane.setMaxHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
-        scrollPane.setMinHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
 
         MainClass.primaryStage.widthProperty().addListener(
                 (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-                    scrollPane.setPrefWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
-                    scrollPane.setMaxWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
-                    scrollPane.setMinWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
+                    double change = newValue.doubleValue() / DataClass.startXStage;
+                    description.setFont(new Font(11*change));
+                    scrollPane.setPrefWidth(550*change);
+                    scrollPane.setMaxWidth(550*change);
+
                 });
         MainClass.primaryStage.heightProperty().addListener(
                 (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-                    scrollPane.setPrefHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
-                    scrollPane.setMaxHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
-                    scrollPane.setMinHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
+                    double change = newValue.doubleValue() / DataClass.startYStage;
+                    scrollPane.setPrefHeight(250*change);
+                    scrollPane.setMaxHeight(250*change);
                 });
     }
 }

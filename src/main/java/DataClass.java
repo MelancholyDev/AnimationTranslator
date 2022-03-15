@@ -6,7 +6,8 @@ public class DataClass {
     public static double startButtonY = 40;
     public static double startButtonFont = 11;
     public static double maxWidthPath=150;
-    public static double faqScrollBarBorder = 300;
+    public static double faqScrollBarBorder = 150;
     public static double faqScrollHeight = 300;
     public static double faqScrollWidth = 300;
+    public static double videoDefaultSize = 200;
 }

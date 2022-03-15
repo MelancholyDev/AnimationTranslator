@@ -1,5 +1,9 @@
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,11 +19,13 @@ public class MainClass extends Application {
     static VideoGenerator videoGenerator;
     static UIController controller;
     static GenerateVideoController generateController;
+    static Deleter deleter;
 
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
         videoGenerator = new VideoGenerator();
+        deleter = new Deleter();
         URL location = MainClass.class.getResource("UI_StartPage.fxml");
         Parent root = FXMLLoader.load(location);
         stage.setTitle("AnimationTranslator");
@@ -32,5 +38,9 @@ public class MainClass extends Application {
 
     public static void main(String[] args) throws IOException {
         launch();
+    }
+    public static void deleteFile(String path) throws IOException {
+        File file=new File("C:\\Users\\morri\\Desktop\\Results\\generated_1.mp4");
+        Files.delete(Paths.get(path));
     }
 }

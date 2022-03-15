@@ -18,6 +18,8 @@
 <?import javafx.scene.media.Media?>
 
 
+<?import javafx.scene.Group?>
+<?import javafx.scene.shape.Box?>
 <BorderPane fx:id="pane" stylesheets="CSS_StartMenu.css" minWidth="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenuController">
     <top>
         <VBox alignment="TOP_CENTER" spacing="5">
@@ -44,7 +46,7 @@
     </center>
     <bottom>
         <VBox alignment="CENTER"  spacing="10" >
-            <Button  VBox.vgrow="ALWAYS" fx:id="faqButton" text="FAQ" onAction="#openFAQ"/>
+            <Button  fx:id="faqButton" text="FAQ" onAction="#openFAQ"/>
             <Label maxWidth="Infinity" fx:id="names" alignment="CENTER" >
                 <text>Maksimov, Rabizov, Ziatdinov</text>
                 <padding>

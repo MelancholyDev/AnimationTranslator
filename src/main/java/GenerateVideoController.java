@@ -10,6 +10,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 
 import java.io.IOException;
 
@@ -47,6 +48,7 @@ public class GenerateVideoController {
         System.out.println("LOOOOOOOOOOOOGGGGGGGGGGGG");
         Label newLog = new Label();
         newLog.setAlignment(Pos.CENTER);
+        newLog.setTextAlignment(TextAlignment.CENTER);
         newLog.setText(log);
         logBox.getChildren().add(newLog);
     }

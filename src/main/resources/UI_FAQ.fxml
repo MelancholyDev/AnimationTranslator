@@ -29,16 +29,18 @@
         </Label>
     </top>
     <center>
-        <!--        <TextFlow textAlignment="CENTER" >-->
-        <!--            -->
-        <!--        </TextFlow>-->
-            <ScrollPane maxWidth="600" maxHeight="300" fx:id="scrollPane" style="-fx-background-color:transparent;" >
-                <Text fx:id="description" text="- What does this app do?&#10;- It transforms your image,sound and text into animated translation video&#10;&#10;- What if i don't have sound for input?&#10;- For correct generation you need at least text and image input. Text would be converted into sound and translated automatically&#10;&#10;- What do i need for subtitles?&#10;- You need SRT file&#10;&#10;- What is SRT file?&#10;- A file with the .SRT file extension is a SubRip Subtitle file. These types of files hold video subtitle information like the start and end timecodes of the text and the sequential number of subtitles.&#10;&#10;- How does the video translation works?&#10;- Our app converts video into audio track, which is converted into text and translated. After that it transforms back into audio and then we generate animated video. &#10;"/>
-            </ScrollPane>
+        <ScrollPane maxWidth="600" maxHeight="300" fx:id="scrollPane" style="-fx-background-color:transparent;">
+            <Text fx:id="description"
+                  text="- What does this app do?&#10;- It transforms your image,sound and text into animated translation video&#10;&#10;- What if i don't have sound for input?&#10;- For correct generation you need at least text and image input. Text would be converted into sound and translated automatically&#10;&#10;- What do i need for subtitles?&#10;- You need SRT file&#10;&#10;- What is SRT file?&#10;- A file with the .SRT file extension is a SubRip Subtitle file. These types of files hold video subtitle information like the start and end timecodes of the text and the sequential number of subtitles.&#10;&#10;- How does the video translation works?&#10;- Our app converts video into audio track, which is converted into text and translated. After that it transforms back into audio and then we generate animated video. &#10;"/>
+        </ScrollPane>
     </center>
     <bottom>
         <VBox alignment="CENTER" spacing="10">
-            <Button VBox.vgrow="ALWAYS" fx:id="faqButton" text="Back" onAction="#backToMenu"/>
+            <padding>
+                <Insets bottom="20"/>
+            </padding>
+            <Button VBox.vgrow="ALWAYS" fx:id="faqButton" text="Back" onAction="#backToMenu">
+            </Button>
         </VBox>
     </bottom>
 </BorderPane>

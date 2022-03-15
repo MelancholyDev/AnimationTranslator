@@ -28,11 +28,14 @@ public class MainMenuController {
     @FXML
     public void loadCreateVideoPage() throws IOException {
         Parent root = FXMLLoader.load(MainClass.class.getResource("UI_InputDataCreateVideo.fxml"));
+        //Parent root = FXMLLoader.load(MainClass.class.getResource("UI_FinishGeneration.fxml"));
         MainClass.mainScene.setRoot(root);
     }
 
     @FXML
     public void loadAddSubtitlesPage() throws IOException {
+        Deleter.path = "C:\\Users\\morri\\Desktop\\Results\\generated_1.mp4";
+        MainClass.deleter.start();
     }
 
     @FXML
@@ -43,6 +46,9 @@ public class MainMenuController {
 
     @FXML
     void initialize() {
+        if (Deleter.path != null) {
+            MainClass.deleter.start();
+        }
         MainClass.primaryStage.widthProperty().addListener(
                 (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
                     double change = newValue.doubleValue() / DataClass.startXStage;
@@ -50,20 +56,24 @@ public class MainMenuController {
                     createVideo.setPrefWidth(110 * change);
                     createVideo.setFont(new Font(DataClass.startButtonFont * change));
                     addSubtitles.setPrefWidth(110 * change);
-                    addSubtitles.setFont(new Font(DataClass.startButtonFont* change));
+                    addSubtitles.setFont(new Font(DataClass.startButtonFont * change));
                     faqButton.setPrefWidth(110 * change);
                     faqButton.setFont(new Font(DataClass.startButtonFont * change));
                     names.setFont(new Font(DataClass.startButtonFont * change));
-                    imageView.setFitWidth(240*change);
+                    imageView.setFitWidth(240 * change);
                     animationTranslator.setFont(new Font(DataClass.startTitleFontSize * change));
                 });
         MainClass.primaryStage.heightProperty().addListener(
                 (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
                     double change = newValue.doubleValue() / DataClass.startYStage;
                     createVideo.setPrefHeight(40 * change);
-                    imageView.setFitHeight(50*change);
+                    imageView.setFitHeight(50 * change);
                     addSubtitles.setPrefHeight(40 * change);
                 });
+        MainClass.primaryStage.setWidth(MainClass.primaryStage.getWidth() + 1);
+        MainClass.primaryStage.setHeight(MainClass.primaryStage.getHeight() + 1);
+        MainClass.primaryStage.setWidth(MainClass.primaryStage.getWidth() - 1);
+        MainClass.primaryStage.setHeight(MainClass.primaryStage.getHeight() - 1);
     }
 
 }

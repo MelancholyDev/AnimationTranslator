@@ -25,22 +25,21 @@
         </Label>
     </top>
     <center>
-        <HBox alignment="CENTER" fx:id="VideoBox">
-            <VBox alignment="CENTER" fx:id="firstVideo">
-                <padding>
-                    <Insets top="40" bottom="40"/>
-                </padding>
+        <HBox alignment="CENTER" fx:id="VideoBox" spacing="20">
+            <VBox alignment="CENTER" fx:id="firstVideo" spacing="20">
             </VBox>
-            <VBox  alignment="CENTER" fx:id="secondVideo">
-                <padding>
-                    <Insets top="10" bottom="10"/>
-                </padding>
+            <VBox  alignment="CENTER" fx:id="secondVideo" spacing="20">
             </VBox>
-            <VBox alignment="CENTER" fx:id="thirdVideo">
-                <padding>
-                    <Insets top="10" bottom="10"/>
-                </padding>
+            <VBox alignment="CENTER" fx:id="thirdVideo" spacing="20">
             </VBox>
         </HBox>
     </center>
+    <bottom>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets bottom="20"/>
+            </padding>
+            <Button onAction="#backToMenu" text="Back" prefHeight="30" prefWidth="110"/>
+        </VBox>
+    </bottom>
 </BorderPane>
