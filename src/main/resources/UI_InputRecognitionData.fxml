@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="RecognitonInputController">
+    <top>
+        <Label maxWidth="Infinity" fx:id="title" alignment="TOP_CENTER">
+            <text>Input your data</text>
+            <font>
+                <Font name="Arial" size="20">
+                </Font>
+            </font>
+            <padding>
+                <Insets top="20"/>
+            </padding>
+        </Label>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+                <Button prefHeight="40" prefWidth="110" fx:id="converter" text="Convert Video" onAction="#loadConvertersPage"/>
+                <Button prefHeight="40" prefWidth="110" fx:id="recognition" text="Recognition" onAction="#loadRecognitionPage"/>
+                <Button prefHeight="40" prefWidth="110" fx:id="translate" text="Translate" onAction="#loadTranslatorPage"/>
+                <Button prefHeight="40" prefWidth="110" fx:id="tts" text="Text To Speech" onAction="#loadTextToSpeechPage"/>
+                <Button prefHeight="40" prefWidth="110" fx:id="backid" text="Back" onAction="#loadBackToMain"/>
+        </VBox>
+    </center>
+    <bottom>
+    </bottom>
+</BorderPane>

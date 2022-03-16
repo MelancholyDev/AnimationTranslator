@@ -41,7 +41,7 @@
     <center>
         <VBox alignment="CENTER" spacing="10">
             <Button prefHeight="40" prefWidth="110" fx:id="createVideo" text="Create video" onAction="#loadCreateVideoPage"/>
-            <Button prefHeight="40" prefWidth="110" fx:id="addSubtitles" text="Add subtitles" onAction="#loadAddSubtitlesPage"/>
+            <Button prefHeight="40" prefWidth="110" fx:id="addSubtitles" text="Recognition" onAction="#loadAddSubtitlesPage"/>
         </VBox>
     </center>
     <bottom>

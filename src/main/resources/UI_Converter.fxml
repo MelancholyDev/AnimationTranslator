@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="RecognitonInputController">
+    <top>
+        <Label maxWidth="Infinity" fx:id="title" alignment="TOP_CENTER">
+            <text>Converter page</text>
+            <font>
+                <Font name="Arial" size="20">
+                </Font>
+            </font>
+            <padding>
+                <Insets top="20"/>
+            </padding>
+        </Label>
+    </top>
+    <center>
+        <GridPane hgap="20" vgap="20" alignment="CENTER">
+            <children>
+                <Button alignment="CENTER" text="Choose video " prefHeight="60" prefWidth="160" fx:id="chooseSoundButton" GridPane.columnIndex="0"
+                        GridPane.rowIndex="0" onAction="#chooseVidep"/>
+                <Button alignment="CENTER" text="Choose folder" prefHeight="60" prefWidth="160" fx:id="chooseImage" GridPane.columnIndex="0"
+                        GridPane.rowIndex="1" onAction="#chooseResultFolder"/>
+                <Label minWidth="150" alignment="CENTER" maxWidth="150" text="Your video path is empty!" GridPane.columnIndex="1"
+                       GridPane.rowIndex="0" fx:id="sourceVideoPath"/>
+                <Label minWidth="150" alignment="CENTER" maxWidth="150" text="Your audio path is empty!" GridPane.columnIndex="1"
+                       GridPane.rowIndex="1" fx:id="resultVideoPath"/>
+                <Button alignment="CENTER" text="Convert" prefHeight="60" prefWidth="160" fx:id="chooseConvert" GridPane.columnIndex="0"
+                        GridPane.rowIndex="2" onAction="#chooseConvert"/>
+
+
+
+            </children>
+        </GridPane>
+    </center>
+    <bottom>
+        <VBox alignment="CENTER" spacing="20">
+            <Button alignment="CENTER" text="Back" fx:id="Back" GridPane.columnIndex="0"
+                    GridPane.rowIndex="3" onAction="#backToRecognition">
+                <text>Generate!</text>
+                <font>
+                    <Font name="Arial" size="11">
+                    </Font>
+                </font>
+            </Button>
+            <Label/>
+        </VBox>
+    </bottom>
+</BorderPane>

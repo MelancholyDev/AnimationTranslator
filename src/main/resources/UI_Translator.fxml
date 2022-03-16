@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="RecognitonInputController">
+    <top>
+        <Label maxWidth="Infinity" fx:id="title" alignment="TOP_CENTER">
+            <text>Translation page</text>
+            <font>
+                <Font name="Arial" size="20">
+                </Font>
+            </font>
+            <padding>
+                <Insets top="20"/>
+            </padding>
+        </Label>
+    </top>
+    <center>
+        <GridPane hgap="10" vgap="10" alignment="CENTER">
+            <children>
+                <Button alignment="CENTER" text="Choose input file" prefHeight="60" prefWidth="160" fx:id="chooseSoundButton" GridPane.columnIndex="0"
+                        GridPane.rowIndex="0" onAction="#chooseinpuFile"/>
+                <Button alignment="CENTER" text="Choose output" prefHeight="60" prefWidth="160" fx:id="chooseImage" GridPane.columnIndex="0"
+                        GridPane.rowIndex="1" onAction="#chooseResultTranslation"/>
+                <Button alignment="CENTER" text="Translate" prefHeight="60" prefWidth="160" fx:id="chooseConvert" GridPane.columnIndex="0"
+                        GridPane.rowIndex="2" onAction="#chooseTranslate"/>
+
+
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonEnIn" onAction="#showChooseLanEnIn" GridPane.columnIndex="0"
+                             GridPane.rowIndex="3" text="English"/>
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonRuIn" onAction="#showChooseLanRuIn" GridPane.columnIndex="0"
+                             GridPane.rowIndex="4" text="Russian"/>
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonDeIn" onAction="#showChooseLanDeIn" GridPane.columnIndex="0"
+                             GridPane.rowIndex="5" text="German"/>
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonFrIn" onAction="#showChooseLanFrIn" GridPane.columnIndex="0"
+                             GridPane.rowIndex="6" text="Frenсh"/>
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonChIn" onAction="#showChooseLanChIn" GridPane.columnIndex="0"
+                             GridPane.rowIndex="7" text="Chinese"/>
+                <RadioButton minWidth="50" alignment="CENTER" maxWidth="150" text="English"  GridPane.columnIndex="1" onAction="#showChooseLanEnOut"
+                       GridPane.rowIndex="3" fx:id="EnOut"/>
+                <RadioButton minWidth="50" alignment="CENTER" maxWidth="150" text="Russian"  GridPane.columnIndex="1" onAction="#showChooseLanRuOut"
+                             GridPane.rowIndex="4" fx:id="RuOut"/>
+                <RadioButton minWidth="50" alignment="CENTER" maxWidth="150" text="German"  GridPane.columnIndex="1" onAction="#showChooseLanDeOut"
+                             GridPane.rowIndex="5" fx:id="DeOut"/>
+                <RadioButton minWidth="50" alignment="CENTER" maxWidth="150" text="French"  GridPane.columnIndex="1" onAction="#showChooseLanFrOut"
+                             GridPane.rowIndex="6" fx:id="FrOut"/>
+                <RadioButton minWidth="50" alignment="CENTER" maxWidth="150" text="Chinese"  GridPane.columnIndex="1" onAction="#showChooseLanChOut"
+                             GridPane.rowIndex="7" fx:id="ChOut"/>
+                <Label minWidth="150" alignment="CENTER" maxWidth="150" text="Your source path is empty!" GridPane.columnIndex="1"
+                       GridPane.rowIndex="0" fx:id="sourceTextPath"/>
+                <Label minWidth="150" alignment="CENTER" maxWidth="150" text="Your result path is empty!" GridPane.columnIndex="1"
+                       GridPane.rowIndex="1" fx:id="resultTextPath"/>
+
+
+            </children>
+        </GridPane>
+    </center>
+    <bottom>
+        <VBox alignment="CENTER" spacing="20">
+            <Button alignment="CENTER" text="Back" fx:id="Back" GridPane.columnIndex="0"
+                    GridPane.rowIndex="3" onAction="#backToRecognition">
+                <text>Generate!</text>
+                <font>
+                    <Font name="Arial" size="11">
+                    </Font>
+                </font>
+            </Button>
+            <Label/>
+        </VBox>
+    </bottom>
+</BorderPane>

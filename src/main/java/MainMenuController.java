@@ -34,6 +34,8 @@ public class MainMenuController {
 
     @FXML
     public void loadAddSubtitlesPage() throws IOException {
+        Parent root = FXMLLoader.load(MainClass.class.getResource("UI_inputRecognitionData.fxml"));
+        MainClass.mainScene.setRoot(root);
         Deleter.path = "C:\\Users\\morri\\Desktop\\Results\\generated_1.mp4";
         MainClass.deleter.start();
     }

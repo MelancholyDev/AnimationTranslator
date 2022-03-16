@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="RecognitonInputController">
+    <top>
+        <Label maxWidth="Infinity" fx:id="title" alignment="TOP_CENTER">
+            <text>Recognition page</text>
+            <font>
+                <Font name="Arial" size="20">
+                </Font>
+            </font>
+            <padding>
+                <Insets top="20"/>
+            </padding>
+        </Label>
+    </top>
+    <center>
+        <GridPane hgap="10" vgap="10" alignment="CENTER">
+            <children>
+                <Button alignment="CENTER" text="Choose audio " prefHeight="60" prefWidth="160" fx:id="chooseSoundButton" GridPane.columnIndex="0"
+                        GridPane.rowIndex="0" onAction="#chooseAudio"/>
+                <Button alignment="CENTER" text="Choose output" prefHeight="60" prefWidth="160" fx:id="chooseImage" GridPane.columnIndex="0"
+                        GridPane.rowIndex="1" onAction="#chooseResultRecognition"/>
+                <Button alignment="CENTER" text="Recognize" fx:id="chooseConvert" prefHeight="60" prefWidth="160" GridPane.columnIndex="0"
+                        GridPane.rowIndex="2" onAction="#chooseRecognize"/>
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonEn" onAction="#showChooseLanEn" GridPane.columnIndex="0"
+                             GridPane.rowIndex="3" text="English"/>
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonRu" onAction="#showChooseLanRu" GridPane.columnIndex="0"
+                             GridPane.rowIndex="4" text="Russian"/>
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonDe" onAction="#showChooseLanDe" GridPane.columnIndex="0"
+                             GridPane.rowIndex="5" text="German"/>
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonFr" onAction="#showChooseLanFr" GridPane.columnIndex="0"
+                             GridPane.rowIndex="6" text="Frenсh"/>
+                <RadioButton alignment="CENTER" fx:id="chooseSubtitlesRadioButtonCh" onAction="#showChooseLanCh" GridPane.columnIndex="0"
+                             GridPane.rowIndex="7" text="Chinese"/>
+                <Label minWidth="150" alignment="CENTER" maxWidth="150" text="Your audio path is empty!" GridPane.columnIndex="1"
+                       GridPane.rowIndex="0" fx:id="sourceAudioPath"/>
+                <Label minWidth="150" alignment="CENTER" maxWidth="150" text="Your output path is empty!" GridPane.columnIndex="1"
+                       GridPane.rowIndex="1" fx:id="resultOutputPath"/>
+            </children>
+        </GridPane>
+    </center>
+    <bottom>
+        <VBox alignment="CENTER" spacing="20">
+            <Button alignment="CENTER" text="Back" fx:id="Back" GridPane.columnIndex="0"
+                    GridPane.rowIndex="3" onAction="#backToRecognition">
+                <text>Generate!</text>
+                <font>
+                    <Font name="Arial" size="11">
+                    </Font>
+                </font>
+            </Button>
+            <Label/>
+        </VBox>
+    </bottom>
+</BorderPane>
