@@ -13,10 +13,14 @@ public class TextToSpeech {
             // TODO Cnange to project exe and get this String variables from ui
             String pythonPath = "python";
             String script = "src/main/resources/TextToSpeechScript.py";
+            String exePath = "src/main/resources/TextToSpeechScript.exe";
             String command = pythonPath + " " + script + " " + sourceFile + " " + resultFiel
                     + " " + language ;
 
-            Process p = Runtime.getRuntime().exec(command);
+            String commandExe = exePath + " " + sourceFile + " " + resultFiel
+                + " " + language ;
+
+            Process p = Runtime.getRuntime().exec(commandExe);
 
 //            BufferedReader stdInput = new BufferedReader(new
 //                    InputStreamReader(p.getInputStream()));

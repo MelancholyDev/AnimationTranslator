@@ -17,6 +17,7 @@ public class Translator {
  //               try {
             String pythonPath = "python";
             String script = "src/main/resources/TranslatorScript.py";
+            String exePath = "src/main/resources/TranslatorScript.exe";
             // Examples
 //            String sourceFile = "src/main/resources/RecognitionOutput/tramp_innoguration_output.txt";
 //            String translatedFile = "src/main/resources/TranslatedText/tramp_innoguration_translated.txt";
@@ -25,7 +26,10 @@ public class Translator {
             String command = pythonPath + " " + script + " " + sourceFile + " " + translatedFile
                     + " " + sourceLanguage + " " + resultLanguage;
 
-            Process p = Runtime.getRuntime().exec(command);
+            String commandExe = exePath + " " + sourceFile + " " + translatedFile
+                + " " + sourceLanguage + " " + resultLanguage;
+
+            Process p = Runtime.getRuntime().exec(commandExe);
 //
 //            BufferedReader stdInput = new BufferedReader(new
 //                    InputStreamReader(p.getInputStream()));
