@@ -7,7 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx"
+<BorderPane fx:id="pane" stylesheets="CSS_StartMenu.css" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="AddSubtitlesController">
     <top>
@@ -23,7 +23,7 @@
         </Label>
     </top>
     <center>
-        <VBox alignment="CENTER" fx:id="logBox">
+        <VBox alignment="CENTER" fx:id="logBox" spacing="3">
             <padding>
                 <Insets top="5" bottom="5"/>
             </padding>
@@ -31,7 +31,10 @@
     </center>
     <bottom>
         <VBox fx:id="endVBox" alignment="CENTER">
-            <ImageView fitHeight="75" fitWidth="100">
+            <padding>
+                <Insets bottom="20"/>
+            </padding>
+            <ImageView fitHeight="75" fx:id="loadingGif" fitWidth="100">
                 <Image url="Loading2.gif"/>
             </ImageView>
         </VBox>

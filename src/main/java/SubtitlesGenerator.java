@@ -28,7 +28,7 @@ public class SubtitlesGenerator extends Thread {
                 resizedVideos) {
             String final_video = finalLibrary + "\\with_subtitles_" + index + ".mp4";
             try {
-                addSubtitles(video, srtFile, final_video);
+                addSubtitles(video, srtFile, final_video,index,resizedVideos.size());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -49,7 +49,7 @@ public class SubtitlesGenerator extends Thread {
         for (String video : chosenVideo) {
             String final_video = finalLibrary + "\\resized_" + index + ".mp4";
             try {
-                resizeVideo(video, final_video);
+                resizeVideo(video, final_video,index,chosenVideo.size());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,14 +61,14 @@ public class SubtitlesGenerator extends Thread {
     }
 
 
-    private void resizeVideo(String video, String finalVideo) throws Exception {
-        ResizeProcess resizer = new ResizeProcess(video, finalVideo);
+    private void resizeVideo(String video, String finalVideo,int index,int num) throws Exception {
+        ResizeProcess resizer = new ResizeProcess(video, finalVideo,index,num);
         resizer.start();
         resizer.join();
     }
 
-    private void addSubtitles(String source, String srt, String finalLibrary) throws Exception {
-        AddSubtitlesProcess subtitlesProcess = new AddSubtitlesProcess(source, srt, finalLibrary);
+    private void addSubtitles(String source, String srt, String finalLibrary,int index,int num) throws Exception {
+        AddSubtitlesProcess subtitlesProcess = new AddSubtitlesProcess(source, srt, finalLibrary,index,num);
         subtitlesProcess.start();
         subtitlesProcess.join();
     }

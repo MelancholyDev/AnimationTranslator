@@ -1,16 +1,11 @@
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import javax.xml.crypto.Data;
 
 
 public class MainClass extends Application {
@@ -21,13 +16,11 @@ public class MainClass extends Application {
     static GenerateVideoController generateController;
     static SubtitlesGenerator subtitlesGenerator;
     static AddSubtitlesController subtitlesController;
-    static Deleter deleter;
 
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
         videoGenerator = new VideoGenerator();
-        deleter = new Deleter();
         URL location = MainClass.class.getResource("UI_StartPage.fxml");
         Parent root = FXMLLoader.load(location);
         stage.setTitle("AnimationTranslator");
@@ -42,6 +35,9 @@ public class MainClass extends Application {
         launch();
     }
     public static void fixSize(){
-
+        primaryStage.setHeight(primaryStage.getHeight()+1);
+        primaryStage.setWidth(primaryStage.getWidth()+1);
+        primaryStage.setHeight(primaryStage.getHeight()-1);
+        primaryStage.setWidth(primaryStage.getWidth()-1);
     }
 }

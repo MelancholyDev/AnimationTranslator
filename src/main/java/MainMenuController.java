@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.MediaView;
 import javafx.scene.text.Font;
 
 public class MainMenuController {
@@ -16,7 +15,6 @@ public class MainMenuController {
     public Button faqButton;
     public Image image;
     public ImageView imageView;
-    public MediaView mediaView;
     @FXML
     Button createVideo;
     @FXML
@@ -28,7 +26,6 @@ public class MainMenuController {
     @FXML
     public void loadCreateVideoPage() throws IOException {
         Parent root = FXMLLoader.load(MainClass.class.getResource("UI_InputDataCreateVideo.fxml"));
-        //Parent root = FXMLLoader.load(MainClass.class.getResource("UI_FinishGeneration.fxml"));
         MainClass.mainScene.setRoot(root);
     }
 
@@ -36,8 +33,6 @@ public class MainMenuController {
     public void loadAddSubtitlesPage() throws IOException {
         Parent root = FXMLLoader.load(MainClass.class.getResource("UI_inputRecognitionData.fxml"));
         MainClass.mainScene.setRoot(root);
-        Deleter.path = "C:\\Users\\morri\\Desktop\\Results\\generated_1.mp4";
-        MainClass.deleter.start();
     }
 
     @FXML
@@ -48,9 +43,6 @@ public class MainMenuController {
 
     @FXML
     void initialize() {
-        if (Deleter.path != null) {
-            MainClass.deleter.start();
-        }
         MainClass.primaryStage.widthProperty().addListener(
                 (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
                     double change = newValue.doubleValue() / DataClass.startXStage;
@@ -64,6 +56,7 @@ public class MainMenuController {
                     names.setFont(new Font(DataClass.startButtonFont * change));
                     imageView.setFitWidth(240 * change);
                     animationTranslator.setFont(new Font(DataClass.startTitleFontSize * change));
+                    System.out.println(DataClass.startTitleFontSize * change);
                 });
         MainClass.primaryStage.heightProperty().addListener(
                 (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
@@ -72,10 +65,7 @@ public class MainMenuController {
                     imageView.setFitHeight(50 * change);
                     addSubtitles.setPrefHeight(40 * change);
                 });
-        MainClass.primaryStage.setWidth(MainClass.primaryStage.getWidth() + 1);
-        MainClass.primaryStage.setHeight(MainClass.primaryStage.getHeight() + 1);
-        MainClass.primaryStage.setWidth(MainClass.primaryStage.getWidth() - 1);
-        MainClass.primaryStage.setHeight(MainClass.primaryStage.getHeight() - 1);
+        MainClass.fixSize();
     }
 
 }

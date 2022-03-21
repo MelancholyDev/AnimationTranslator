@@ -1,14 +1,10 @@
-import com.sun.tools.javac.Main;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -16,25 +12,17 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Font;
 
-import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class FinishGenerationController {
 
     public HBox VideoBox;
     public Label title;
-    public HBox videos;
     public VBox firstVideo;
     public VBox secondVideo;
     public VBox thirdVideo;
-    public int num = 3;
+    public Button nextStepButton;
 
     @FXML
     void initialize() {
@@ -51,14 +39,11 @@ public class FinishGenerationController {
         mediaPlayerFirst.play();
         mediaPlayerFirst.setVolume(0);
         Button buttonFist = new Button();
-        buttonFist.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                VideoBox.getChildren().remove(firstVideo);
-                MainClass.videoGenerator.chosenVideo.remove(file1.getAbsolutePath());
-                System.out.println(MainClass.videoGenerator.chosenVideo.size());
-                file1.deleteOnExit();
-            }
+        buttonFist.setOnAction(event -> {
+            VideoBox.getChildren().remove(firstVideo);
+            MainClass.videoGenerator.chosenVideo.remove(file1.getAbsolutePath());
+            System.out.println(MainClass.videoGenerator.chosenVideo.size());
+            file1.deleteOnExit();
         });
         buttonFist.setText("Delete");
         buttonFist.setPrefWidth(100);
@@ -77,14 +62,11 @@ public class FinishGenerationController {
         buttonSecond.setText("Delete");
         buttonSecond.setPrefWidth(100);
         buttonSecond.setPrefHeight(30);
-        buttonSecond.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                VideoBox.getChildren().remove(secondVideo);
-                MainClass.videoGenerator.chosenVideo.remove(file2.getAbsolutePath());
-                System.out.println(MainClass.videoGenerator.chosenVideo.size());
-                file2.deleteOnExit();
-            }
+        buttonSecond.setOnAction(event -> {
+            VideoBox.getChildren().remove(secondVideo);
+            MainClass.videoGenerator.chosenVideo.remove(file2.getAbsolutePath());
+            System.out.println(MainClass.videoGenerator.chosenVideo.size());
+            file2.deleteOnExit();
         });
         secondVideo.getChildren().add(mediaViewSecond);
         secondVideo.getChildren().add(buttonSecond);
@@ -100,14 +82,11 @@ public class FinishGenerationController {
         buttonThird.setText("Delete");
         buttonThird.setPrefWidth(100);
         buttonThird.setPrefHeight(30);
-        buttonThird.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                VideoBox.getChildren().remove(thirdVideo);
-                MainClass.videoGenerator.chosenVideo.remove(file3.getAbsolutePath());
-                System.out.println(MainClass.videoGenerator.chosenVideo.size());
-                file3.deleteOnExit();
-            }
+        buttonThird.setOnAction(event -> {
+            VideoBox.getChildren().remove(thirdVideo);
+            MainClass.videoGenerator.chosenVideo.remove(file3.getAbsolutePath());
+            System.out.println(MainClass.videoGenerator.chosenVideo.size());
+            file3.deleteOnExit();
         });
         thirdVideo.getChildren().add(mediaViewThird);
         thirdVideo.getChildren().add(buttonThird);
@@ -120,20 +99,17 @@ public class FinishGenerationController {
                     mediaViewThird.setFitHeight(DataClass.videoDefaultSize * change);
                     buttonFist.setPrefHeight(30 * change);
                     buttonFist.setPrefWidth(100 * change);
+                    buttonFist.setFont(new Font(DataClass.startButtonFont * change));
                     buttonSecond.setPrefHeight(30 * change);
                     buttonSecond.setPrefWidth(100 * change);
+                    buttonSecond.setFont(new Font(DataClass.startButtonFont * change));
                     buttonThird.setPrefHeight(30 * change);
                     buttonThird.setPrefWidth(100 * change);
-
+                    buttonThird.setFont(new Font(DataClass.startButtonFont * change));
+                    nextStepButton.setPrefWidth(110 * change);
+                    nextStepButton.setFont(new Font(DataClass.startButtonFont * change));
                 });
-        MainClass.primaryStage.heightProperty().addListener(
-                (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-                    double change = newValue.doubleValue() / DataClass.startYStage;
-                });
-        MainClass.primaryStage.setWidth(MainClass.primaryStage.getWidth() + 1);
-        MainClass.primaryStage.setHeight(MainClass.primaryStage.getHeight() + 1);
-        MainClass.primaryStage.setWidth(MainClass.primaryStage.getWidth() - 1);
-        MainClass.primaryStage.setHeight(MainClass.primaryStage.getHeight() - 1);
+        MainClass.fixSize();
 
     }
 

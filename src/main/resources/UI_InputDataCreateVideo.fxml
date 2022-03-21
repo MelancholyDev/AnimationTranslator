@@ -5,7 +5,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
-<BorderPane xmlns="http://javafx.com/javafx"
+<BorderPane  fx:id="pane" stylesheets="CSS_StartMenu.css" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="CreateVideoInputController">
     <top>
@@ -27,7 +27,7 @@
                         GridPane.rowIndex="0" onAction="#chooseSound"/>
                 <Button alignment="CENTER" text="Choose image" fx:id="chooseImage" GridPane.columnIndex="0"
                         GridPane.rowIndex="1" onAction="#chooseImage"/>
-                <Button alignment="CENTER" text="Choose folder" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                <Button alignment="CENTER" text="Choose folder" fx:id="chooseFolderButton" GridPane.columnIndex="0" GridPane.rowIndex="2"
                         onAction="#chooseFolder"/>
                 <RadioButton alignment="CENTER"  fx:id="chooseSubtitlesRadioButton" onAction="#showChooseSubtitles" GridPane.columnIndex="0"
                              GridPane.rowIndex="3" text="Add subtitles"/>
@@ -35,7 +35,7 @@
                        GridPane.rowIndex="0" fx:id="soundPath"/>
                 <Label minWidth="150" alignment="CENTER" maxWidth="150" text="Your image path is empty!" GridPane.columnIndex="1"
                        GridPane.rowIndex="1" fx:id="imagePath"/>
-                <Label minWidth="150" alignment="CENTER" maxWidth="150" text="Your image path is empty!" GridPane.columnIndex="1"
+                <Label minWidth="150" alignment="CENTER" maxWidth="150" text="Your folder path is empty!" GridPane.columnIndex="1"
                        GridPane.rowIndex="2" fx:id="folderPath"/>
                 <Button visible="false" alignment="CENTER" text="Add subtitles" GridPane.columnIndex="1" GridPane.rowIndex="3"
                         fx:id="chooseSubtitlesButton" onAction="#chooseSubtitles"/>
@@ -46,7 +46,7 @@
     </center>
     <bottom>
         <VBox alignment="CENTER" spacing="20">
-            <Button visible="true" alignment="CENTER" fx:id="continueButton" prefHeight="20" prefWidth="100"
+            <Button alignment="CENTER" visible="false" fx:id="continueButton" prefHeight="20" prefWidth="100"
                     onAction="#openGenerateVideoMenu">
                 <text>Generate!</text>
                 <font>

@@ -1,6 +1,7 @@
 import javafx.application.Platform;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -9,16 +10,20 @@ public class AddSubtitlesProcess extends Thread {
     String source;
     String srt;
     String finalLibrary;
+    int index;
+    int num;
 
-    public AddSubtitlesProcess(String source, String srt, String finalLibrary) {
+    public AddSubtitlesProcess(String source, String srt, String finalLibrary, int index,int num) {
         this.source = source;
         this.srt = srt;
         this.finalLibrary = finalLibrary;
+        this.index=index;
+        this.num=num;
     }
 
     @Override
     public void run() {
-        String log = "Start add subtitles process";
+        String log = "Start add subtitles for video "+index;
         Platform.runLater(new Log(log, TargetController.ADD_SUBTITLES));
         String command = DataClass.pythonPath + " " + DataClass.addSubtitlesPath + " " + srt + " " + source + " " + finalLibrary;
         System.out.println(command);
@@ -35,6 +40,16 @@ public class AddSubtitlesProcess extends Thread {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        log = "Finish add subtitles for video "+index;
+        File file=new File(source);
+        if(file.delete()){
+            System.out.println("DELETE RESIZE");
+        }else{
+            System.out.println("FAIL DELETE RESIZE");
+        }
+        Platform.runLater(new Log(log, TargetController.ADD_SUBTITLES));
+//        log = "Add subtitles on video  "+index+" out of "+num;
+//        Platform.runLater(new Log(log, TargetController.ADD_SUBTITLES));
     }
 
         void getTempLog(Process process) throws IOException {

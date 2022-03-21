@@ -1,19 +1,24 @@
 import javafx.application.Platform;
 
+import java.io.File;
 import java.io.IOException;
 
 public class ResizeProcess extends Thread {
     String video;
     String finalVideo;
+    int index;
+    int num;
 
-    public ResizeProcess(String video, String finalVideo) {
+    public ResizeProcess(String video, String finalVideo, int index,int num) {
         this.video = video;
         this.finalVideo = finalVideo;
+        this.index = index;
+        this.num = num;
     }
 
     @Override
     public void run() {
-        String log = "Start resizing video for correct subtitles";
+        String log = "Start resizing video "+index+" for correct subtitles";
         Platform.runLater(new Log(log,TargetController.ADD_SUBTITLES));
         String command = DataClass.pythonPath +" "+DataClass.resizePath+ " " + video + " " + finalVideo;
         System.out.println(command);
@@ -27,9 +32,12 @@ public class ResizeProcess extends Thread {
             process = pb.start();
             process.waitFor();
             MainClass.subtitlesGenerator.resizedVideos.add(finalVideo);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+        File file=new File(video);
+        file.deleteOnExit();
+        log = "Finish resizing video "+index;
+        Platform.runLater(new Log(log,TargetController.ADD_SUBTITLES));
     }
 }

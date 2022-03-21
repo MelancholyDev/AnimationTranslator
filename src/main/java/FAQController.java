@@ -3,6 +3,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
@@ -12,9 +13,10 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 public class FAQController {
-    public Label text;
     public ScrollPane scrollPane;
     public Text description;
+    public Label text;
+    public Button faqButton;
 
     public void backToMenu(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(MainClass.class.getResource("UI_StartPage.fxml"));
@@ -34,6 +36,9 @@ public class FAQController {
                     description.setFont(new Font(11*change));
                     scrollPane.setPrefWidth(550*change);
                     scrollPane.setMaxWidth(550*change);
+                    text.setFont(new Font(DataClass.startTitleFontSize * change));
+                    faqButton.setPrefWidth(110 * change);
+                    faqButton.setFont(new Font(DataClass.startButtonFont * change));
 
                 });
         MainClass.primaryStage.heightProperty().addListener(
@@ -42,5 +47,6 @@ public class FAQController {
                     scrollPane.setPrefHeight(250*change);
                     scrollPane.setMaxHeight(250*change);
                 });
+        MainClass.fixSize();
     }
 }

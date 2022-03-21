@@ -25,6 +25,7 @@ public class CreateVideoInputController {
     public Label subtitlesPath;
     public Button chooseImage;
     public Button chooseSoundButton;
+    public Button chooseFolderButton;
     @FXML
     Button chooseSubtitlesButton;
     @FXML
@@ -33,6 +34,7 @@ public class CreateVideoInputController {
     Button continueButton;
     @FXML
     Label folderPath;
+
     boolean correctImage;
     boolean correctSound;
     boolean correctSub;
@@ -59,31 +61,49 @@ public class CreateVideoInputController {
         MainClass.primaryStage.widthProperty().addListener(
                 (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
                     double change = newValue.doubleValue() / DataClass.startXStage;
-                    title.setFont(new Font(DataClass.startTitleFontSize* change));
+                    title.setFont(new Font(DataClass.startTitleFontSize * change));
 
-                    chooseImage.setPrefWidth(DataClass.startButtonX*change);
-                    chooseImage.setFont(new Font(DataClass.startButtonFont*change));
-                    imagePath.setFont(new Font(DataClass.startButtonFont*change));
-                    imagePath.setPrefWidth(DataClass.startButtonX*change);
-                    imagePath.setMaxWidth(DataClass.maxWidthPath*change);
+                    chooseImage.setPrefWidth(DataClass.startButtonX * change);
+                    chooseImage.setFont(new Font(DataClass.startButtonFont * change));
+                    imagePath.setFont(new Font(DataClass.startButtonFont * change));
+                    imagePath.setPrefWidth(DataClass.startButtonX * change);
+                    imagePath.setMaxWidth(DataClass.maxWidthPath * change);
 
-                    chooseSoundButton.setPrefWidth(DataClass.startButtonX*change);
-                    chooseSoundButton.setFont(new Font(DataClass.startButtonFont*change));
-                    soundPath.setFont(new Font(DataClass.startButtonFont*change));
-                    soundPath.setPrefWidth(DataClass.startButtonX*change);
-                    soundPath.setMaxWidth(DataClass.maxWidthPath*change);
+                    chooseSoundButton.setPrefWidth(DataClass.startButtonX * change);
+                    chooseSoundButton.setFont(new Font(DataClass.startButtonFont * change));
+                    soundPath.setFont(new Font(DataClass.startButtonFont * change));
+                    soundPath.setPrefWidth(DataClass.startButtonX * change);
+                    soundPath.setMaxWidth(DataClass.maxWidthPath * change);
+
+                    chooseSubtitlesButton.setPrefWidth(DataClass.startButtonX * change);
+                    chooseSubtitlesButton.setFont(new Font(DataClass.startButtonFont * change));
+                    subtitlesPath.setFont(new Font(DataClass.startButtonFont * change));
+                    subtitlesPath.setPrefWidth(DataClass.startButtonX * change);
+                    subtitlesPath.setMaxWidth(DataClass.maxWidthPath * change);
+
+                    chooseFolderButton.setPrefWidth(DataClass.startButtonX * change);
+                    chooseFolderButton.setFont(new Font(DataClass.startButtonFont * change));
+                    folderPath.setFont(new Font(DataClass.startButtonFont * change));
+                    folderPath.setPrefWidth(DataClass.startButtonX * change);
+                    folderPath.setMaxWidth(DataClass.maxWidthPath * change);
+
+                    chooseSubtitlesRadioButton.setPrefWidth(DataClass.startButtonX * change);
+                    chooseSubtitlesRadioButton.setFont(new Font(DataClass.startButtonFont * change));
+
+                    continueButton.setPrefWidth(110 * change);
+                    continueButton.setFont(new Font(DataClass.startButtonFont * change));
+
                 });
         MainClass.primaryStage.heightProperty().addListener(
                 (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
                     double change = newValue.doubleValue() / DataClass.startYStage;
-                    chooseImage.setPrefHeight(DataClass.startButtonY*change);
-                    chooseSoundButton.setPrefHeight(DataClass.startButtonY*change);
-//                    createVideo.setPrefHeight(40 * change);
-//                    imageView.setFitHeight(50*change);
-//                    addSubtitles.setPrefHeight(40 * change);
+                    chooseImage.setPrefHeight(DataClass.startButtonY * change);
+                    chooseSubtitlesRadioButton.setPrefHeight(DataClass.startButtonY * change);
+                    chooseSoundButton.setPrefHeight(DataClass.startButtonY * change);
+                    chooseFolderButton.setPrefHeight(DataClass.startButtonY*change);
+                    continueButton.setPrefHeight(DataClass.startButtonY*change);
                 });
-        MainClass.primaryStage.setWidth(MainClass.primaryStage.widthProperty().doubleValue()+1);
-        MainClass.primaryStage.setHeight(MainClass.primaryStage.heightProperty().doubleValue()+1);
+        MainClass.fixSize();
     }
 
     public void checkIsInputFinished() {
@@ -113,6 +133,11 @@ public class CreateVideoInputController {
     public void showChooseSubtitles(ActionEvent actionEvent) {
         subtitlesPath.setVisible(chooseSubtitlesRadioButton.isSelected());
         chooseSubtitlesButton.setVisible(chooseSubtitlesRadioButton.isSelected());
+        if (chooseSubtitlesRadioButton.isSelected()) {
+            MainClass.videoGenerator.isAddSubtitles=true;
+        } else {
+            MainClass.videoGenerator.isAddSubtitles=false;
+        }
         checkIsInputFinished();
     }
 
@@ -122,8 +147,8 @@ public class CreateVideoInputController {
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(MainClass.primaryStage);
         if (file != null) {
-            soundPath.setText(file.getPath());
-            MainClass.videoGenerator.sound = file.getPath();
+            subtitlesPath.setText(file.getPath());
+            MainClass.videoGenerator.srtFile = file.getPath();
             correctSub = true;
         } else {
             correctSub = false;
@@ -139,7 +164,6 @@ public class CreateVideoInputController {
 
     public void chooseFolder(ActionEvent actionEvent) {
         DirectoryChooser chooser = new DirectoryChooser();
-        chooser.setTitle("Final folder");
         File defaultDirectory = new File("c:/");
         chooser.setInitialDirectory(defaultDirectory);
         File selectedDirectory = chooser.showDialog(MainClass.primaryStage);

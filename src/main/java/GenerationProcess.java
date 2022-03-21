@@ -32,6 +32,8 @@ public class GenerationProcess extends Thread {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        log = "Finish generating video with dataset: " + dataSetName;
+        Platform.runLater(new Log(log,TargetController.GENERATE));
 
     }
 }

@@ -10,6 +10,7 @@ public class DataClass {
     public static double faqScrollHeight = 300;
     public static double faqScrollWidth = 300;
     public static double videoDefaultSize = 200;
+    public static double logSize = 10;
     public static String[] dataSets = {"grid.dat", "crema.dat", "timit.dat"};
     public static  String resourcePath = "D:\\Programming\\AnimationTranslator\\src\\main\\resources\\VideoGenerator\\";
     public static  String pythonPath = "D:\\Programming\\AnimationTranslator\\venv\\Scripts\\python.exe";

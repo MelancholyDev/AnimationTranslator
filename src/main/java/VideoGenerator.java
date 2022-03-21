@@ -34,7 +34,7 @@ public class VideoGenerator extends Thread {
             }
             index++;
         }
-        log = "Generating successfully finished! ";
+        log = "Generating successfully finished!";
         Platform.runLater(new Log(log, TargetController.GENERATE));
         Platform.runLater(() -> {
             MainClass.generateController.finishGeneration();
