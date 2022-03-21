@@ -1,3 +1,4 @@
+import com.sun.tools.javac.Main;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -33,6 +34,7 @@ public class FinishGenerationController {
     public VBox firstVideo;
     public VBox secondVideo;
     public VBox thirdVideo;
+    public int num = 3;
 
     @FXML
     void initialize() {
@@ -53,6 +55,8 @@ public class FinishGenerationController {
             @Override
             public void handle(ActionEvent event) {
                 VideoBox.getChildren().remove(firstVideo);
+                MainClass.videoGenerator.chosenVideo.remove(file1.getAbsolutePath());
+                System.out.println(MainClass.videoGenerator.chosenVideo.size());
                 file1.deleteOnExit();
             }
         });
@@ -77,6 +81,8 @@ public class FinishGenerationController {
             @Override
             public void handle(ActionEvent event) {
                 VideoBox.getChildren().remove(secondVideo);
+                MainClass.videoGenerator.chosenVideo.remove(file2.getAbsolutePath());
+                System.out.println(MainClass.videoGenerator.chosenVideo.size());
                 file2.deleteOnExit();
             }
         });
@@ -98,6 +104,8 @@ public class FinishGenerationController {
             @Override
             public void handle(ActionEvent event) {
                 VideoBox.getChildren().remove(thirdVideo);
+                MainClass.videoGenerator.chosenVideo.remove(file3.getAbsolutePath());
+                System.out.println(MainClass.videoGenerator.chosenVideo.size());
                 file3.deleteOnExit();
             }
         });
@@ -129,11 +137,16 @@ public class FinishGenerationController {
 
     }
 
-    public void backToMenu(ActionEvent actionEvent) throws IOException {
-//        Parent pane = FXMLLoader.load(getClass().getResource("UI_StartPage.fxml"));
-//        Scene scene = new Scene(pane);
-        Parent root = FXMLLoader.load(MainClass.class.getResource("UI_StartPage.fxml"));
-        MainClass.mainScene.setRoot(root);
-        //MainClass.primaryStage.setScene(scene);
+    public void nextStep(ActionEvent actionEvent) throws IOException {
+        System.out.println("DATA!"+MainClass.videoGenerator.isAddSubtitles+" "+MainClass.videoGenerator.chosenVideo.size());
+        if (!MainClass.videoGenerator.isAddSubtitles | MainClass.videoGenerator.chosenVideo.size() == 0) {
+            System.out.println("NO SUBS");
+            Parent root = FXMLLoader.load(MainClass.class.getResource("UI_StartPage.fxml"));
+            MainClass.mainScene.setRoot(root);
+        } else {
+            System.out.println("SUBS!");
+            Parent root = FXMLLoader.load(MainClass.class.getResource("UI_AddSubtitles.fxml"));
+            MainClass.mainScene.setRoot(root);
+        }
     }
 }

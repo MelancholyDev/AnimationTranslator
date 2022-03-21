@@ -19,6 +19,8 @@ public class MainClass extends Application {
     static VideoGenerator videoGenerator;
     static UIController controller;
     static GenerateVideoController generateController;
+    static SubtitlesGenerator subtitlesGenerator;
+    static AddSubtitlesController subtitlesController;
     static Deleter deleter;
 
     @Override
@@ -39,8 +41,7 @@ public class MainClass extends Application {
     public static void main(String[] args) throws IOException {
         launch();
     }
-    public static void deleteFile(String path) throws IOException {
-        File file=new File("C:\\Users\\morri\\Desktop\\Results\\generated_1.mp4");
-        Files.delete(Paths.get(path));
+    public static void fixSize(){
+
     }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="AddSubtitlesController">
+    <top>
+        <Label maxWidth="Infinity" fx:id="title" alignment="TOP_CENTER">
+            <text>Add subtitles process</text>
+            <font>
+                <Font name="Arial" size="20">
+                </Font>
+            </font>
+            <padding>
+                <Insets top="20"/>
+            </padding>
+        </Label>
+    </top>
+    <center>
+        <VBox alignment="CENTER" fx:id="logBox">
+            <padding>
+                <Insets top="5" bottom="5"/>
+            </padding>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox fx:id="endVBox" alignment="CENTER">
+            <ImageView fitHeight="75" fitWidth="100">
+                <Image url="Loading2.gif"/>
+            </ImageView>
+        </VBox>
+    </bottom>
+</BorderPane>

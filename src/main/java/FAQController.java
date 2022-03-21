@@ -22,10 +22,6 @@ public class FAQController {
     }
     @FXML
     void initialize() {
-//        scrollPane.setPrefWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
-//        scrollPane.setMaxWidth((MainClass.primaryStage.widthProperty().doubleValue()-DataClass.faqScrollBarBorder));
-//        scrollPane.setPrefHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
-//        scrollPane.setMaxHeight(MainClass.primaryStage.heightProperty().doubleValue()-DataClass.faqScrollBarBorder);
         scrollPane.setPrefWidth(550);
         scrollPane.setMaxWidth(550);
         scrollPane.setPrefHeight(250);

@@ -147,12 +147,10 @@ public class UIController {
 
     public void ChooseSubtitles(ActionEvent actionEvent) {
         radioButtonWithoutSubtitles.setSelected(!radioButtonWithSubtitles.isSelected());
-        MainClass.videoGenerator.isAddSubtitles = 1;
     }
 
     public void ChooseWithoutSubtitles(ActionEvent actionEvent) {
         radioButtonWithSubtitles.setSelected(!radioButtonWithoutSubtitles.isSelected());
-        MainClass.videoGenerator.isAddSubtitles = 0;
     }
 
     public void OnChooseFinalFolderClicked(ActionEvent actionEvent) {
@@ -167,7 +165,6 @@ public class UIController {
     }
 
     public void addLog(String logText) {
-        System.out.println("LOOOOOOOOOOOOGGGGGGGGGGGG");
         Label newLog = new Label();
         newLog.setText(logText);
         newLog.setLayoutX(lastX);
