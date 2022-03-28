@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
 
 public class AddSubtitlesProcess extends Thread {
 
@@ -25,7 +26,9 @@ public class AddSubtitlesProcess extends Thread {
     public void run() {
         String log = "Start add subtitles for video "+index;
         Platform.runLater(new Log(log, TargetController.ADD_SUBTITLES));
-        String command = DataClass.pythonPath + " " + DataClass.addSubtitlesPath + " " + srt + " " + source + " " + finalLibrary;
+        URL url = this.getClass().getClassLoader().getResource("/VideoGeneration/add_subtitles.py");
+        System.out.println(url);
+        String command = "python " + DataClass.addSubtitlesPath + " " + srt + " " + source + " " + finalLibrary;
         System.out.println(command);
         Process process;
         ProcessBuilder pb;

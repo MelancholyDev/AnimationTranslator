@@ -58,6 +58,7 @@ public class CreateVideoInputController {
 
     @FXML
     void initialize() {
+        MainClass.videoGenerator=new VideoGenerator();
         MainClass.primaryStage.widthProperty().addListener(
                 (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
                     double change = newValue.doubleValue() / DataClass.startXStage;

@@ -20,7 +20,7 @@ public class ResizeProcess extends Thread {
     public void run() {
         String log = "Start resizing video "+index+" for correct subtitles";
         Platform.runLater(new Log(log,TargetController.ADD_SUBTITLES));
-        String command = DataClass.pythonPath +" "+DataClass.resizePath+ " " + video + " " + finalVideo;
+        String command = "python "+DataClass.resizePath+ " " + video + " " + finalVideo;
         System.out.println(command);
         Process process;
         ProcessBuilder pb;

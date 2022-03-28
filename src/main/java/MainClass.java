@@ -20,7 +20,7 @@ public class MainClass extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
-        videoGenerator = new VideoGenerator();
+        DataClass data=new DataClass();
         URL location = MainClass.class.getResource("UI_StartPage.fxml");
         Parent root = FXMLLoader.load(location);
         stage.setTitle("AnimationTranslator");

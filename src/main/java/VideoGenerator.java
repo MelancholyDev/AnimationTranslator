@@ -28,7 +28,7 @@ public class VideoGenerator extends Thread {
         for (String dataSet : DataClass.dataSets) {
             String finalPath = finalLibrary + "\\generated_" + index + ".mp4";
             try {
-                generateVideo(dataSet, DataClass.resourcePath + dataSet, image, sound, finalPath,index);
+                generateVideo(dataSet, dataSet, image, sound, finalPath,index);
             } catch (Exception e) {
                 e.printStackTrace();
             }
