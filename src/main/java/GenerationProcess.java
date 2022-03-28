@@ -10,13 +10,15 @@ public class GenerationProcess extends Thread {
     String audioPath;
     String finalPath;
     String dataSetName;
+    int index;
 
-    public GenerationProcess(String dataSetName, String dataSet, String imagePath, String audioPath, String finalPath) {
+    public GenerationProcess(String dataSetName, String dataSet, String imagePath, String audioPath, String finalPath,int index) {
         this.dataSetName = dataSetName;
         this.dataSet = dataSet;
         this.imagePath = imagePath;
         this.audioPath = audioPath;
         this.finalPath = finalPath;
+        this.index=index;
     }
 
     @Override
@@ -33,6 +35,8 @@ public class GenerationProcess extends Thread {
             e.printStackTrace();
         }
         log = "Finish generating video with dataset: " + dataSetName;
+        Platform.runLater(new Log(log,TargetController.GENERATE));
+        log = "Finish generating "+index + " out of 3";
         Platform.runLater(new Log(log,TargetController.GENERATE));
 
     }

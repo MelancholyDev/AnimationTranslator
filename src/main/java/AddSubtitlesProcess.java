@@ -48,8 +48,8 @@ public class AddSubtitlesProcess extends Thread {
             System.out.println("FAIL DELETE RESIZE");
         }
         Platform.runLater(new Log(log, TargetController.ADD_SUBTITLES));
-//        log = "Add subtitles on video  "+index+" out of "+num;
-//        Platform.runLater(new Log(log, TargetController.ADD_SUBTITLES));
+        log = "Add subtitles on video  "+index+" out of "+num;
+        Platform.runLater(new Log(log, TargetController.ADD_SUBTITLES));
     }
 
         void getTempLog(Process process) throws IOException {

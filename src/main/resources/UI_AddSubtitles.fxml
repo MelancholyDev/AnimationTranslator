@@ -23,11 +23,13 @@
         </Label>
     </top>
     <center>
-        <VBox alignment="CENTER" fx:id="logBox" spacing="3">
-            <padding>
-                <Insets top="5" bottom="5"/>
-            </padding>
-        </VBox>
+        <ScrollPane maxWidth="600" maxHeight="300" fitToWidth="true" fitToHeight="true" fx:id="scrollPane" style="-fx-background-color:transparent;">
+            <VBox alignment="CENTER" fx:id="logBox" spacing="10">
+                <padding>
+                    <Insets top="5" bottom="5"/>
+                </padding>
+            </VBox>
+        </ScrollPane>
     </center>
     <bottom>
         <VBox fx:id="endVBox" alignment="CENTER">

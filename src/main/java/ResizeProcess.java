@@ -39,5 +39,7 @@ public class ResizeProcess extends Thread {
         file.deleteOnExit();
         log = "Finish resizing video "+index;
         Platform.runLater(new Log(log,TargetController.ADD_SUBTITLES));
+        log = "Resize video  "+index+" out of "+num;
+        Platform.runLater(new Log(log, TargetController.ADD_SUBTITLES));
     }
 }

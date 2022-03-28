@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -18,6 +19,7 @@ public class AddSubtitlesController {
     public VBox logBox;
     public Label title;
     public ImageView loadingGif;
+    public ScrollPane scrollPane;
 
     public void finishGeneration(){
         endVBox.getChildren().clear();
@@ -52,9 +54,17 @@ public class AddSubtitlesController {
                         Label label = (Label) n;
                         label.setFont(new Font(DataClass.logSize * change));
                     }
+                    scrollPane.setPrefWidth(550*change);
+                    scrollPane.setMaxWidth(550*change);
                     loadingGif.setFitHeight(75*change);
                     loadingGif.setFitWidth(100*change);
                     title.setFont(new Font(DataClass.startTitleFontSize * change));
+                });
+        MainClass.primaryStage.heightProperty().addListener(
+                (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
+                    double change = newValue.doubleValue() / DataClass.startYStage;
+                    scrollPane.setPrefHeight(250*change);
+                    scrollPane.setMaxHeight(250*change);
                 });
         MainClass.fixSize();
     }

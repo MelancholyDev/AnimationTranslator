@@ -28,7 +28,7 @@ public class VideoGenerator extends Thread {
         for (String dataSet : DataClass.dataSets) {
             String finalPath = finalLibrary + "\\generated_" + index + ".mp4";
             try {
-                generateVideo(dataSet, DataClass.resourcePath + dataSet, image, sound, finalPath);
+                generateVideo(dataSet, DataClass.resourcePath + dataSet, image, sound, finalPath,index);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -41,8 +41,8 @@ public class VideoGenerator extends Thread {
         });
     }
 
-    private void generateVideo(String dataSetName, String dataSet, String imagePath, String audioPath, String finalPath) throws Exception {
-        GenerationProcess process = new GenerationProcess(dataSetName, dataSet, imagePath, audioPath, finalPath);
+    private void generateVideo(String dataSetName, String dataSet, String imagePath, String audioPath, String finalPath,int index) throws Exception {
+        GenerationProcess process = new GenerationProcess(dataSetName, dataSet, imagePath, audioPath, finalPath,index);
         process.start();
         process.join();
     }
